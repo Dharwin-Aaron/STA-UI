@@ -1,5 +1,5 @@
 import React from 'react';
-import './css/styles.css'; // Adjust the path as needed
+import './styles/styles.css'; // Adjust the path as needed
 
 const Portfolio = () => {
   return (
