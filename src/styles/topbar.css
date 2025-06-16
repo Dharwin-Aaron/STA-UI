@@ -1,0 +1,42 @@
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Pushes first item (h1) to start, last item (button-group-right) to end */
+  padding: 8px 15px;
+  background-color: #181a20;
+  color: white;
+}
+
+.top-bar h1 {
+  flex-grow: 1; /* Allows heading to take available space and push buttons to the right */
+  text-align: center; /* Centers the heading text within its flex space */
+  margin: 0; /* Removes extra margin */
+}
+
+.button-group-right { /* Styles for the new button grouping div */
+  display: flex; /* Makes the buttons inside it display side-by-side */
+  gap: 10px; /* Adds space between the buttons */
+  /* No need for 'margin-left: auto;' here as justify-content: space-between on parent handles positioning */
+}
+
+.back-button,
+.close-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px; /* Adjust for ellipse */
+  height: 40px; /* Adjust for ellipse */
+  background: transparent;
+  border: 2px solid white;
+  border-radius: 10px; /* Ellipse shape */
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.back-button:hover,
+.close-button:hover {
+  background: white;
+  color: #181a20; /* Contrast effect */
+}

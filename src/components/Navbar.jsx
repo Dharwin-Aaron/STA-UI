@@ -1,40 +1,39 @@
 import React, { useState } from 'react';
 import '../styles/navbar.css';
 
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(true);
+const menuItems = [
+  { label: 'Sheet Rule', icon: '📄' },
+  { label: 'Sheet Rule Group', icon: '🗂️' },
+  { label: 'Snap Sheet', icon: '📸' },
+  { label: 'Snap Chain', icon: '🔗' },
+  { label: 'Snap Export', icon: '📤' },
+];
 
-  const toggleNavbar = () => {
-    setIsOpen(!isOpen);
+const Navbar = ({ setHeading, setShowTable }) => {
+  const [activeIndex, setActiveIndex] = useState(0); // Default active menu
+
+  const handleMenuClick = (idx, label) => {
+    setActiveIndex(idx);
+    setHeading(label); // Update top bar title
+    setShowTable(label === 'Sheet Rule'); // Show Table only when "Snap Rule"
   };
-  const menuItems = [
-    'List Of Values',
-    'Data Type',
-    'Field',
-    'Project Mapping',
-    'Sheet Rule',
-    'Sheet Rule Group',
-    'Standard Image Background Remover',
-    'Image Process Profile Entity',
-    'Image Processor By Profile',
-    'Batch Image Processor Zip',
-    'Snap Sheet',
-    'Snap Chain',
-    'Snap Export',
-  ];
-console.log('menu rendered',menuItems);
-console.log("Navbar component is rendering");
+
   return (
-    <div className={`navbar ${isOpen ? 'open' : 'closed'}`}>
+    <div className="navbar">
       <div className="navbar-header">
         <div className="logo">ANTON</div>
-        <button className="toggle-btn" onClick={toggleNavbar}>
-          ☰
-        </button>
       </div>
       <ul className="menu">
-        {menuItems.map((item, index) => (
-          <li key={index} className="menu-item">{item}</li>
+        {menuItems.map((item, idx) => (
+          <li
+            key={item.label}
+            className={`menu-item${activeIndex === idx ? ' active' : ''}`}
+            onClick={() => handleMenuClick(idx, item.label)}
+            title={item.label}
+          >
+            <span className="icon">{item.icon}</span>
+            <span className="label">{item.label}</span>
+          </li>
         ))}
       </ul>
     </div>
