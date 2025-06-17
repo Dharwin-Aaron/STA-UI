@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/navbar.css';
+import logo from '../assets/sta-logo.png'; // Adjust path as needed
+
 
 const menuItems = [
   { label: 'Sheet Rule', icon: '📄' },
@@ -21,11 +23,13 @@ const Navbar = ({ setHeading, setShowTable }) => {
   return (
     <div className="navbar">
       <div className="navbar-header">
-        <div className="logo">ANTON</div>
+        {/* <img src={logo} alt="Company Logo" className="logo-image" /> */}
+        <img src={logo} alt="Logo" className="logo-image" />
+         <div className="logo">ANTON</div>
       </div>
       <ul className="menu">
         {menuItems.map((item, idx) => (
-          <li
+          <li 
             key={item.label}
             className={`menu-item${activeIndex === idx ? ' active' : ''}`}
             onClick={() => handleMenuClick(idx, item.label)}

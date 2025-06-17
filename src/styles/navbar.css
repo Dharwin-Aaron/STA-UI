@@ -10,7 +10,7 @@
 .navbar-header {
   display: flex;
   align-items: center;
-  padding: 24px 0 24px 32px;
+  padding: 15px 0 15px 20px;
   background: transparent;
 }
 
@@ -19,6 +19,17 @@
   font-weight: bold;
   letter-spacing: 2px;
   color: #e0e0e0;
+  padding-left: 25px; /* Space between logo image and text */
+}
+
+.logo-image {
+  width: 40px; /* Adjust logo width as needed */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Ensures margin auto works for centering */
+  margin: 0px; /* Center the image horizontally */
+  padding: 5px; /* Add a little padding around the logo */
+  background-color: white; /* Match the square background of your logo */
+  border-radius: 5px; /* Adjust border-radius to match the image's rounded corners */
 }
 
 .menu {
